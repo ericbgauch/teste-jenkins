@@ -17,7 +17,7 @@ pipeline {
             steps {
                 echo 'imprimir credential aqui'
                 echo 'HOMOLOG --'
-                echo credentials('HOTSITES_HOMOLOG_DB_HOST')
+                echo $HOTSITES_HOMOLOG_DB_HOST
                 echo credentials('CHORAAPP_DB_NAME')
                 echo credentials('HOTSITES_HOMOLOG_DB_USER')
                 echo credentials('CHORAAPP_DB_PASS')
