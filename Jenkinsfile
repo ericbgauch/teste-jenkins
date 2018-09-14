@@ -29,6 +29,7 @@ pipeline {
                 echo credentials('CHORAAPP_DB_PASS')
             }
         }
+    }
 
     post {
         always {
