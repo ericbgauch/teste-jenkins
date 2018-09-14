@@ -17,8 +17,12 @@ pipeline {
             steps {
                 echo 'imprimir credential aqui'
                 echo 'HOMOLOG --'
-                withCredentials([string(credentialsId: 'HOTSITES_HOMOLOG_DB_HOST', variable: 'DB_HOST')]) {
+                withCredentials([string(credentialsId: 'HOTSITES_HOMOLOG_DB_HOST', variable: 'DB_HOST')], ) {
                     sh 'echo $DB_HOST'
+                }
+
+                withCredentials([file(credentialsId: 'CHORAAPP', variable: 'choraapp')], ) {
+                    sh 'echo $choraapp.HOTSITES_HOMOLOG_DB_HOST'
                 }
                 // echo credentials('HOTSITES_HOMOLOG_DB_HOST')
                 // echo credentials('CHORAAPP_DB_NAME')
