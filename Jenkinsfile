@@ -22,7 +22,8 @@ pipeline {
                 }
 
                 withCredentials([file(credentialsId: 'CHORAAPP', variable: 'choraapp')], ) {
-                    sh 'echo $choraapp.HOTSITES_HOMOLOG_DB_HOST'
+                    sh 'load choraapp'
+                    sh 'echo ${HOTSITES_HOMOLOG_DB_HOST}'
                 }
                 // echo credentials('HOTSITES_HOMOLOG_DB_HOST')
                 // echo credentials('CHORAAPP_DB_NAME')
