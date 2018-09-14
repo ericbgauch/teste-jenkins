@@ -17,7 +17,7 @@ pipeline {
             steps {
                 echo 'imprimir credential aqui'
                 echo 'HOMOLOG --'
-                withCredentials([file(credentialsId: 'HOTSITES_HOMOLOG_DB_HOST', variable: 'DB_HOST')]) {
+                withCredentials([string(credentialsId: 'HOTSITES_HOMOLOG_DB_HOST', variable: 'DB_HOST')]) {
                     sh 'echo $DB_HOST'
                 }
                 // echo credentials('HOTSITES_HOMOLOG_DB_HOST')
