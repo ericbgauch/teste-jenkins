@@ -17,16 +17,19 @@ pipeline {
             steps {
                 echo 'imprimir credential aqui'
                 echo 'HOMOLOG --'
-                echo credentials('HOTSITES_HOMOLOG_DB_HOST')
-                echo credentials('CHORAAPP_DB_NAME')
-                echo credentials('HOTSITES_HOMOLOG_DB_USER')
-                echo credentials('CHORAAPP_DB_PASS')
+                withCredentials([file(credentialsId: 'HOTSITES_HOMOLOG_DB_HOST', variable: 'DB_HOST')]) {
+                    sh 'echo $DB_HOST'
+                }
+                // echo credentials('HOTSITES_HOMOLOG_DB_HOST')
+                // echo credentials('CHORAAPP_DB_NAME')
+                // echo credentials('HOTSITES_HOMOLOG_DB_USER')
+                // echo credentials('CHORAAPP_DB_PASS')
 
-                echo 'PROD --'
-                echo credentials('HOTSITES_PROD_DB_HOST')
-                echo credentials('CHORAAPP_DB_NAME')
-                echo credentials('HOTSITES_PROD_DB_USER')
-                echo credentials('CHORAAPP_DB_PASS')
+                // echo 'PROD --'
+                // echo credentials('HOTSITES_PROD_DB_HOST')
+                // echo credentials('CHORAAPP_DB_NAME')
+                // echo credentials('HOTSITES_PROD_DB_USER')
+                // echo credentials('CHORAAPP_DB_PASS')
             }
         }
     }
